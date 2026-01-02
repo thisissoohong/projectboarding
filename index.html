@@ -164,10 +164,12 @@
         }
 
         .payment-logo-img {
-            height: 20px;
+            height: 22px;
             width: auto;
             vertical-align: middle;
             margin-left: 6px;
+            border: 1px solid #eee;
+            border-radius: 3px;
         }
 
         .detail-header { text-align: center; margin-bottom: 25px; margin-top: 10px; }
@@ -390,12 +392,12 @@
 
     <section class="page active" id="page-home">
         <div class="card-container">
-            <img src="./cardtype1.jpg" alt="Nexus Card" style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; box-shadow: 0 10px 25px rgba(40, 112, 44, 0.2); display: block; margin: 0 auto 25px;">
+            <img src="./cardtype1.jpg" alt="Nexus Card" style="width: 100%; max-width: 280px; height: auto; border-radius: 20px; box-shadow: 0 10px 25px rgba(40, 112, 44, 0.2); display: block; margin: 0 auto 25px;">
         </div>
 
         <div class="balance-area">
             <div class="currency">Balance</div>
-            <div class="amount" id="total-assets">₩5,000,000</div>
+            <div class="amount" id="total-assets">₩500,000</div>
         </div>
 
         <div class="action-tray">
@@ -420,14 +422,6 @@
         <div class="quick-actions-grid">
             <h3 style="font-size:17px; margin-bottom:15px;">Quick Actions</h3>
             <div class="grid-4">
-                <div class="action-card primary" data-target="page-history">
-                    <div><i class="fas fa-receipt" style="font-size:24px;"></i></div>
-                    <div style="font-size:14px; font-weight:600;">Transaction History</div>
-                </div>
-                <div class="action-card secondary" data-target="page-cards">
-                    <div><i class="fas fa-bus" style="font-size:24px;"></i></div>
-                    <div style="font-size:14px; font-weight:600;">Transport</div>
-                </div>
                 <div class="action-card accent" onclick="showToast('Missions (5,000P)')">
                     <div><i class="fas fa-medal" style="font-size:24px;"></i></div>
                     <div style="font-size:14px; font-weight:600;">Missions (5,000P)</div>
@@ -879,32 +873,25 @@
 <div class="toast" id="toast"></div>
 
 <script>
-    // ==========================================
-    // 앱 데이터 및 상태 관리
-    // ==========================================
     const state = {
-        totalAssetsKRW: 5000000,
-        // 거래 내역 데이터 (paymentMethod 추가: 'card', 'applepay', 'transfer' 등)
+        totalAssetsKRW: 500000,
         transactions: [
-            { id: 1, type: 'income', category:'Transfer', title: 'Mathias Bee', date: '29 Jul, 5:00pm', amount: 520000, status: 'Received', avatarUrl: 'https://randomuser.me/api/portraits/men/32.jpg', paymentMethod:'transfer', note:'' },
-            { id: 2, type: 'expense', category:'Transport', title: 'Uber Ride', date: '24 Jul, 10:50pm', amount: 26000, status: 'Paid', avatarIcon: 'fab fa-uber', avatarBg: '#000', avatarColor: '#fff', paymentMethod:'applepay', note:'' },
-            { id: 3, type: 'income', category:'Transfer', title: 'John Doe', date: '30 Jun, 5:00am', amount: 4500000, status: 'Received', avatarInitial: 'JD', avatarBg: '#FCE4EC', avatarColor: '#C2185B', paymentMethod:'transfer', note:'' },
-            { id: 4, type: 'expense', category:'Shopping', title: 'Amazon', date: '26 Jun, 10:30am', amount: 420000, status: 'Paid', avatarIcon: 'fab fa-amazon', avatarBg: '#fff', avatarColor: '#333', paymentMethod:'card', note:'' },
+            { id: 1, type: 'income', category:'Transfer', title: 'Mathias Bee', date: '29 Jul, 5:00pm', amount: 52000, status: 'Received', avatarUrl: 'https://randomuser.me/api/portraits/men/32.jpg', paymentMethod:'transfer', note:'' },
+            { id: 2, type: 'expense', category:'Transport', title: 'Uber Ride', date: '24 Jul, 10:50pm', amount: 12600, status: 'Paid', avatarIcon: 'fab fa-uber', avatarBg: '#000', avatarColor: '#fff', paymentMethod:'applepay', note:'' },
+            { id: 3, type: 'income', category:'Transfer', title: 'John Doe', date: '30 Jun, 5:00am', amount: 145000, status: 'Received', avatarInitial: 'JD', avatarBg: '#FCE4EC', avatarColor: '#C2185B', paymentMethod:'transfer', note:'' },
+            { id: 4, type: 'expense', category:'Shopping', title: 'Amazon', date: '26 Jun, 10:30am', amount: 42000, status: 'Paid', avatarIcon: 'fab fa-amazon', avatarBg: '#fff', avatarColor: '#333', paymentMethod:'card', note:'' },
             { id: 5, type: 'expense', category:'Eating Out', title: 'Ayomide OA', date: '30 Jun, 8:20pm', amount: 30500, status: 'Sent', avatarUrl: 'https://randomuser.me/api/portraits/women/44.jpg', paymentMethod:'transfer', note:'' }
         ]
     };
     
-    // 현재 선택된 거래 (상세보기용)
     let currentDetailTxId = null;
 
-    // 현재 필터 상태
     let activeFilter = {
         type: null, 
         category: null, 
         sortDate: 'desc' 
     };
 
-    // 카테고리 시트 모드 ('filter' or 'edit')
     let categorySheetMode = 'filter';
 
     const exchangeRates = { 
@@ -921,9 +908,6 @@
         document.getElementById('total-assets').innerText = '₩' + state.totalAssetsKRW.toLocaleString();
     }
 
-    // ==========================================
-    // 내역 렌더링
-    // ==========================================
     function renderHistory() {
         const list = document.getElementById('history-list');
         list.innerHTML = ''; 
@@ -957,11 +941,9 @@
             const sign = isIncome ? '+' : '-';
             const amountClass = isIncome ? 't-amount income' : 't-amount';
 
-            // [NEW] Apple Pay Logo Logic for List
             let titleHtml = t.title;
             if (t.paymentMethod === 'applepay') {
-                // Official Acceptance Mark (SVG from Wikimedia)
-                titleHtml += ` <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_Acceptance_Mark.svg" alt="Apple Pay" class="payment-logo-img">`;
+                titleHtml += ` <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Apple_Pay_Acceptance_Mark.svg/200px-Apple_Pay_Acceptance_Mark.svg.png" alt="Apple Pay" class="payment-logo-img">`;
             }
 
             li.innerHTML = `
@@ -981,9 +963,6 @@
         });
     }
 
-    // ==========================================
-    // 상세 페이지 로직
-    // ==========================================
     function openTransactionDetail(txId) {
         const tx = state.transactions.find(t => t.id === txId);
         if (!tx) return;
@@ -998,8 +977,7 @@
 
         const paidViaEl = document.getElementById('detail-paid-via');
         if (tx.paymentMethod === 'applepay') {
-             // Official Acceptance Mark in Detail View
-             paidViaEl.innerHTML = `<div class="payment-method-box"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_Acceptance_Mark.svg" alt="Apple Pay" class="payment-logo-img" style="height:22px;"></div>`;
+             paidViaEl.innerHTML = `<div class="payment-method-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Apple_Pay_Acceptance_Mark.svg/200px-Apple_Pay_Acceptance_Mark.svg.png" alt="Apple Pay" class="payment-logo-img" style="height:22px;"></div>`;
         } else if (tx.paymentMethod === 'card') {
             paidViaEl.innerHTML = `<div class="payment-method-box"><div class="pm-card-icon"></div> 9876</div>`;
         } else {
@@ -1019,7 +997,6 @@
         }
     }
 
-    // --- Note Logic ---
     function openNoteSheet() {
         document.getElementById('note-input').value = '';
         document.getElementById('note-sheet').classList.add('open');
@@ -1046,9 +1023,6 @@
         }
     }
 
-    // ==========================================
-    // 필터 & 카테고리 로직 (통합)
-    // ==========================================
     function applyFilter(filterType) {
         activeFilter.category = null;
         updateFilterUI();
@@ -1136,9 +1110,6 @@
         return `${now.getDate()} ${months[now.getMonth()]}, ${hour}:${min}${ampm}`;
     }
 
-    // ==========================================
-    // 네비게이션
-    // ==========================================
     function navigate(targetId) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         const targetPage = document.getElementById(targetId);
@@ -1175,9 +1146,6 @@
         }, 2000);
     }
 
-    // ==========================================
-    // 기타 로직
-    // ==========================================
     function filterTransactions(val) {
         const list = document.getElementById('history-list');
         const items = list.getElementsByTagName('li');
