@@ -28,8 +28,9 @@
             background-color: var(--background-color);
             color: var(--text-color);
             min-height: 100vh;
-            padding-bottom: 80px; 
+            padding-bottom: 70px; /* 네비게이션 공간 축소 */
             -webkit-tap-highlight-color: transparent;
+            font-size: 13px; /* [수정] 기본 폰트 사이즈 축소 */
         }
 
         .app-shell {
@@ -39,11 +40,11 @@
             min-height: 100vh;
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
             position: relative;
-            padding-bottom: 90px;
+            padding-bottom: 80px;
             overflow-x: hidden; 
         }
 
-        .page { display: none; padding: 20px; }
+        .page { display: none; padding: 15px; /* [수정] 페이지 패딩 축소 */ }
         .page.active { display: block; }
 
         .hidden { display: none !important; }
@@ -53,32 +54,32 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding: 20px 20px 0;
+            padding: 10px 15px 0; /* [수정] 상단 여백 축소 */
         }
         .topbar .profile {
-            width: 32px; height: 32px; border-radius: 50%; background-color: #EEEEEE; margin-right: 12px;
+            width: 28px; height: 28px; border-radius: 50%; background-color: #EEEEEE; margin-right: 10px;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23555"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>');
             background-repeat: no-repeat; background-position: center; background-size: 70%;
         }
         .topbar .pill {
-            background: var(--button-bg-soft); color: var(--primary-color); padding: 8px 14px;
-            border-radius: 20px; font-size: 14px; font-weight: 700; cursor: pointer;
+            background: var(--button-bg-soft); color: var(--primary-color); padding: 6px 12px;
+            border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer;
         }
 
-        .card-container { padding: 10px 20px; text-align: center; }
+        .card-container { padding: 5px 15px; text-align: center; }
         
-        .balance-area { text-align: center; margin-bottom: 30px; margin-top: 10px; }
-        .balance-area .amount { font-size: 36px; font-weight: 800; color: var(--text-color); letter-spacing: -0.5px; }
-        .balance-area .currency { font-size: 14px; font-weight: 600; color: var(--sub-text-color); margin-bottom: 5px; }
+        .balance-area { text-align: center; margin-bottom: 20px; margin-top: 5px; }
+        .balance-area .amount { font-size: 30px; /* [수정] 폰트 축소 */ font-weight: 800; color: var(--text-color); letter-spacing: -0.5px; }
+        .balance-area .currency { font-size: 12px; font-weight: 600; color: var(--sub-text-color); margin-bottom: 3px; }
 
-        .action-tray { display: flex; justify-content: space-around; margin-bottom: 35px; padding: 0 10px; }
-        .action-btn-pill { display: flex; flex-direction: column; align-items: center; font-size: 13px; font-weight: 600; color: var(--text-color); cursor: pointer; gap: 8px; transition: transform 0.1s; }
+        .action-tray { display: flex; justify-content: space-around; margin-bottom: 25px; padding: 0 5px; }
+        .action-btn-pill { display: flex; flex-direction: column; align-items: center; font-size: 11px; /* [수정] 폰트 축소 */ font-weight: 600; color: var(--text-color); cursor: pointer; gap: 6px; transition: transform 0.1s; }
         .action-btn-pill:active { transform: scale(0.95); }
-        .action-btn-pill .icon { width: 48px; height: 48px; border-radius: 16px; background: var(--button-bg-soft); color: var(--point-color); display: flex; justify-content: center; align-items: center; font-size: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .action-btn-pill .icon { width: 42px; height: 42px; /* [수정] 아이콘 박스 축소 */ border-radius: 14px; background: var(--button-bg-soft); color: var(--point-color); display: flex; justify-content: center; align-items: center; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
 
-        .quick-actions-grid { padding: 0 20px; }
-        .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .action-card { border-radius: 16px; padding: 16px; color: white; height: 110px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; transition: transform 0.1s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
+        .quick-actions-grid { padding: 0 15px; }
+        .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .action-card { border-radius: 14px; padding: 14px; color: white; height: 90px; /* [수정] 카드 높이 축소 */ display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; transition: transform 0.1s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
         .action-card:active { transform: scale(0.98); }
         .action-card.primary { background: linear-gradient(135deg, #28702C, #43A047); }
         .action-card.secondary { background: linear-gradient(135deg, #5D5D5D, #333333); }
@@ -87,130 +88,130 @@
 
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; right: 0; max-width: 450px; margin: 0 auto;
-            height: 70px; background: var(--card-background); display: flex; justify-content: space-around; align-items: center;
+            height: 60px; /* [수정] 네비게이션 높이 축소 */ background: var(--card-background); display: flex; justify-content: space-around; align-items: center;
             box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.03); z-index: 10; border-top: 1px solid #f0f0f0;
         }
-        .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: 600; color: #BBBBBB; cursor: pointer; padding: 5px; transition: color 0.2s; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 10px; /* [수정] 폰트 축소 */ font-weight: 600; color: #BBBBBB; cursor: pointer; padding: 5px; transition: color 0.2s; }
         .nav-item.active { color: var(--tab-color-active); }
-        .nav-item i { font-size: 22px; margin-bottom: 4px; }
+        .nav-item i { font-size: 20px; margin-bottom: 2px; }
 
-        .form-card { padding: 20px; background: white; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+        .form-card { padding: 15px; background: white; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
         
         .visa-status-card {
-            background: white; border-radius: 20px; padding: 20px; 
-            box-shadow: 0 12px 35px rgba(0,0,0,0.12); 
-            margin-bottom: 20px; text-align: center;
+            background: white; border-radius: 16px; padding: 15px; /* [수정] 패딩 축소 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            margin-bottom: 15px; text-align: center;
             border: 1px solid rgba(0,0,0,0.02);
         }
 
-        .back-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--text-color); cursor: pointer; margin-bottom: 15px; font-size: 14px; opacity: 0.7; text-decoration: none;}
+        .back-link { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; color: var(--text-color); cursor: pointer; margin-bottom: 10px; font-size: 13px; opacity: 0.7; text-decoration: none;}
         .back-link:hover { opacity: 1; color: var(--primary-color); }
 
         .history-search {
-            width: 100%; padding: 12px 15px; border-radius: 20px; border: 1px solid #eee; background: #f5f5f5; 
-            font-size: 14px; margin-bottom: 15px; outline: none;
+            width: 100%; padding: 10px 15px; border-radius: 18px; border: 1px solid #eee; background: #f5f5f5; 
+            font-size: 13px; margin-bottom: 15px; outline: none;
         }
         .history-search:focus { border-color: var(--primary-color); background: #fff; }
 
         .filter-container {
-            display: flex; align-items: center; width: 100%; margin-bottom: 20px; gap: 8px;
+            display: flex; align-items: center; width: 100%; margin-bottom: 15px; gap: 6px;
         }
         .filter-scroll-area {
-            flex: 1; display: flex; gap: 8px; overflow-x: auto; padding: 4px 0;
+            flex: 1; display: flex; gap: 6px; overflow-x: auto; padding: 4px 0;
             -ms-overflow-style: none; scrollbar-width: none;
             align-items: center; 
         }
         .filter-scroll-area::-webkit-scrollbar { display: none; }
         
         .filter-pill {
-            padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; 
+            padding: 6px 14px; border-radius: 18px; font-size: 12px; font-weight: 600; 
             background: #fff; border: 1px solid #eee; color: #666; white-space: nowrap; cursor: pointer; transition: all 0.2s;
-            height: 36px; display: flex; align-items: center; 
+            height: 32px; display: flex; align-items: center; 
         }
         .filter-pill.active {
             background: var(--button-bg-soft); color: var(--primary-color); border-color: var(--primary-color);
         }
         
         .filter-reset-btn {
-            flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #eee; background: #fff;
+            flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; border: 1px solid #eee; background: #fff;
             display: flex; align-items: center; justify-content: center; color: #666; cursor: pointer;
-            box-shadow: -2px 0 5px rgba(0,0,0,0.03); margin-left: auto;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.03); margin-left: auto; font-size: 12px;
         }
         .filter-reset-btn:active { background: #f0f0f0; }
 
         .history-month-header {
-            font-size: 13px; color: var(--sub-text-color); margin-bottom: 15px; margin-top: 10px; font-weight: 600;
+            font-size: 12px; color: var(--sub-text-color); margin-bottom: 10px; margin-top: 5px; font-weight: 600;
         }
         .transaction-list {
             list-style: none; padding: 0; margin: 0;
         }
         .transaction-item {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 18px 0; border-bottom: 1px solid #f5f5f5; cursor: pointer;
+            padding: 14px 0; /* [수정] 리스트 간격 축소 */ border-bottom: 1px solid #f5f5f5; cursor: pointer;
         }
         .transaction-item:active { background-color: #f9f9f9; }
 
-        .t-left { display: flex; align-items: center; gap: 15px; }
+        .t-left { display: flex; align-items: center; gap: 12px; }
         
         .t-avatar { 
-            width: 48px; height: 48px; border-radius: 50%; background-color: #eee;
-            display: flex; align-items: center; justify-content: center; font-weight: 700; color: #555; font-size: 18px;
+            width: 40px; height: 40px; /* [수정] 아바타 크기 축소 */ border-radius: 50%; background-color: #eee;
+            display: flex; align-items: center; justify-content: center; font-weight: 700; color: #555; font-size: 16px;
             position: relative; background-size: cover; background-position: center; flex-shrink: 0;
         }
-        .t-info { display: flex; flex-direction: column; gap: 4px; }
-        .t-title { font-size: 16px; font-weight: 700; color: var(--text-color); display: flex; align-items: center; gap: 5px; }
-        .t-date { font-size: 12px; color: var(--sub-text-color); }
+        .t-info { display: flex; flex-direction: column; gap: 3px; }
+        .t-title { font-size: 14px; /* [수정] 폰트 축소 */ font-weight: 700; color: var(--text-color); display: flex; align-items: center; gap: 4px; }
+        .t-date { font-size: 11px; color: var(--sub-text-color); }
         
-        .t-right { text-align: right; display: flex; flex-direction: column; gap: 4px; }
-        .t-amount { font-size: 16px; font-weight: 700; color: var(--expense-color); }
+        .t-right { text-align: right; display: flex; flex-direction: column; gap: 3px; }
+        .t-amount { font-size: 14px; font-weight: 700; color: var(--expense-color); }
         .t-amount.income { color: var(--income-color); } 
-        .t-status { font-size: 11px; color: var(--sub-text-color); font-weight: 500; }
+        .t-status { font-size: 10px; color: var(--sub-text-color); font-weight: 500; }
 
         .badge-nexus {
             position: absolute; bottom: -2px; right: -2px; background: var(--point-color); color: white;
-            font-size: 9px; padding: 2px 4px; border-radius: 6px; border: 2px solid white;
+            font-size: 8px; padding: 2px 3px; border-radius: 6px; border: 2px solid white;
         }
 
         .payment-logo-img {
-            height: 22px;
+            height: 18px; /* [수정] 로고 크기 축소 */
             width: auto;
             vertical-align: middle;
-            margin-left: 6px;
+            margin-left: 4px;
             border: 1px solid #eee;
             border-radius: 3px;
         }
 
-        .detail-header { text-align: center; margin-bottom: 25px; margin-top: 10px; }
-        .detail-amount { font-size: 36px; font-weight: 800; color: var(--text-color); margin-bottom: 8px; }
-        .detail-title { font-size: 18px; color: #555; font-weight: 600; }
+        .detail-header { text-align: center; margin-bottom: 20px; margin-top: 5px; }
+        .detail-amount { font-size: 30px; font-weight: 800; color: var(--text-color); margin-bottom: 6px; }
+        .detail-title { font-size: 16px; color: #555; font-weight: 600; }
         
         .detail-box-label {
-            font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;
-            margin-bottom: 15px;
+            font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;
+            margin-bottom: 12px;
         }
 
         .detail-row {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 18px 0; border-bottom: 1px solid #f5f5f5; font-size: 15px;
+            padding: 14px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px;
         }
-        .detail-label { color: #888; font-weight: 600; width: 110px; }
+        .detail-label { color: #888; font-weight: 600; width: 100px; }
         .detail-val { font-weight: 700; color: #333; flex: 1; text-align: right; }
         
-        /* [NEW] Compact Style for Visa Page */
-        .visa-row { padding: 12px 0; } /* 좁은 간격 */
+        /* [수정] 비자 페이지 전용 컴팩트 로우 */
+        .visa-row { padding: 10px 0; font-size: 13px; }
 
         .cat-edit-btn {
-            background: #f0f0f0; padding: 6px 12px; border-radius: 15px; font-size: 12px; 
-            margin-left: 10px; cursor: pointer; color: #555; display: inline-block;
+            background: #f0f0f0; padding: 4px 10px; border-radius: 12px; font-size: 11px; 
+            margin-left: 8px; cursor: pointer; color: #555; display: inline-block;
         }
 
         .payment-method-box {
-            display: inline-flex; align-items: center; gap: 8px; font-weight: 700;
+            display: inline-flex; align-items: center; gap: 6px; font-weight: 700;
         }
         .pm-card-icon {
-            width: 20px; height: 14px; background: var(--primary-color); border-radius: 3px; display: inline-block;
+            width: 18px; height: 12px; background: var(--primary-color); border-radius: 2px; display: inline-block;
         }
-        .pm-apple-icon { font-size: 18px; color: #000; }
+        .pm-apple-icon { font-size: 16px; color: #000; }
 
         .note-add-link {
             color: var(--primary-color); font-weight: 700; text-decoration: underline; cursor: pointer;
@@ -218,17 +219,17 @@
         .note-content { color: #333; }
 
         .split-btn-container {
-            margin-top: 40px; display: flex; justify-content: center;
+            margin-top: 30px; display: flex; justify-content: center;
         }
         .split-btn {
-            background: #fff; border: 1px solid #ddd; padding: 12px 25px; border-radius: 30px;
-            display: flex; align-items: center; gap: 10px; font-weight: 700; color: #333;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); cursor: pointer;
+            background: #fff; border: 1px solid #ddd; padding: 10px 20px; border-radius: 30px;
+            display: flex; align-items: center; gap: 8px; font-weight: 700; color: #333;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); cursor: pointer; font-size: 13px;
         }
         .split-avatars { display: flex; margin-right: 5px; }
         .split-avatar { 
-            width: 24px; height: 24px; border-radius: 50%; background: #eee; border: 2px solid #fff; 
-            margin-left: -8px; display: flex; align-items: center; justify-content: center; font-size: 10px;
+            width: 22px; height: 22px; border-radius: 50%; background: #eee; border: 2px solid #fff; 
+            margin-left: -8px; display: flex; align-items: center; justify-content: center; font-size: 9px;
         }
         .split-avatar:first-child { margin-left: 0; }
 
@@ -238,35 +239,35 @@
         }
         .bottom-sheet {
             position: fixed; bottom: 0; left: 0; right: 0; max-width: 450px; margin: 0 auto;
-            background: white; border-radius: 20px 20px 0 0; padding: 25px 20px 40px;
+            background: white; border-radius: 20px 20px 0 0; padding: 20px 20px 30px;
             z-index: 101; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .bottom-sheet.open { transform: translateY(0); }
-        .sheet-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; text-align: center; }
+        .sheet-title { font-size: 16px; font-weight: 700; margin-bottom: 15px; text-align: center; }
         .sheet-option {
-            padding: 15px; border-bottom: 1px solid #f0f0f0; font-size: 16px; font-weight: 600; color: #333;
+            padding: 12px; border-bottom: 1px solid #f0f0f0; font-size: 14px; font-weight: 600; color: #333;
             display: flex; justify-content: space-between; align-items: center; cursor: pointer;
         }
         .sheet-option:last-child { border-bottom: none; }
         .sheet-option:active { background: #f9f9f9; }
         .sheet-option i { color: var(--sub-text-color); }
 
-        .note-input-wrapper { display: flex; gap: 10px; }
+        .note-input-wrapper { display: flex; gap: 8px; }
         .note-input {
-            flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 12px; font-size: 15px; outline: none;
+            flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 10px; font-size: 14px; outline: none;
         }
         .note-input:focus { border-color: var(--primary-color); }
 
-        .currency-choice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px; }
-        .currency-choice { padding: 10px; border: 1px solid #e5e7eb; border-radius: 10px; cursor: pointer; font-weight: 700; text-align: center; background: #fff; display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 12px; transition: all 0.2s; }
+        .currency-choice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+        .currency-choice { padding: 8px; border: 1px solid #e5e7eb; border-radius: 10px; cursor: pointer; font-weight: 700; text-align: center; background: #fff; display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 11px; transition: all 0.2s; }
         .currency-choice.active { border-color: var(--primary-color); background-color: var(--button-bg-soft); color: var(--primary-color); box-shadow: 0 2px 8px rgba(40, 112, 44, 0.15); }
         
         .dual-currency { 
-            display: flex; align-items: center; gap: 10px; padding: 12px; 
-            border-radius: 12px; background: #F8F9FA; margin-bottom: 15px; border: 1px solid #EEEEEE; 
+            display: flex; align-items: center; gap: 8px; padding: 10px; 
+            border-radius: 12px; background: #F8F9FA; margin-bottom: 12px; border: 1px solid #EEEEEE; 
         }
         .currency-box { 
-            flex: 1; padding: 10px; border-radius: 10px; 
+            flex: 1; padding: 8px; border-radius: 8px; 
             transition: all 0.2s; border: 1px solid transparent; 
         }
         .currency-box.active-input {
@@ -274,69 +275,69 @@
             border-color: var(--primary-color);
             box-shadow: 0 2px 8px rgba(40, 112, 44, 0.1);
         }
-        .swap-arrow { color: var(--primary-color); font-size: 18px; padding: 0 5px; }
+        .swap-arrow { color: var(--primary-color); font-size: 16px; padding: 0 4px; }
 
-        .currency-box input { width: 100%; border: none; background: transparent; font-size: 22px; font-weight: 800; outline: none; text-align: right; margin-top: 5px; color: var(--text-color); }
+        .currency-box input { width: 100%; border: none; background: transparent; font-size: 18px; font-weight: 800; outline: none; text-align: right; margin-top: 4px; color: var(--text-color); }
         .currency-box input[type="number"] { -moz-appearance: textfield; }
         .currency-box input[type="number"]::-webkit-outer-spin-button, 
         .currency-box input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-        .currency-box input::placeholder { color: #ccc; font-weight: 400; font-size: 18px; }
+        .currency-box input::placeholder { color: #ccc; font-weight: 400; font-size: 16px; }
         .currency-box input[readonly] { color: var(--primary-color); } 
-        .currency-box small { font-size: 12px; color: var(--sub-text-color); display: block; }
+        .currency-box small { font-size: 11px; color: var(--sub-text-color); display: block; }
 
-        .money-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-bottom: 20px; }
-        .money-btn { width: 31%; padding: 12px 0; background-color: #f5f5f5; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; color: #333; cursor: pointer; transition: background 0.2s; }
+        .money-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; margin-bottom: 15px; }
+        .money-btn { width: 31%; padding: 10px 0; background-color: #f5f5f5; border: none; border-radius: 8px; font-size: 12px; font-weight: 600; color: #333; cursor: pointer; transition: background 0.2s; }
         .money-btn:active { background-color: #e0e0e0; }
 
-        .action-row { display: flex; gap: 10px; margin-top: 10px; }
-        .btn-reset { flex: 1; background: #fff; border: 1px solid #ddd; color: #666; padding: 14px; border-radius: 12px; font-weight: 700; cursor: pointer; }
-        .btn-next { flex: 2; background: var(--primary-color); border: none; color: white; padding: 14px; border-radius: 12px; font-weight: 700; cursor: pointer; }
+        .action-row { display: flex; gap: 8px; margin-top: 8px; }
+        .btn-reset { flex: 1; background: #fff; border: 1px solid #ddd; color: #666; padding: 12px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 13px; }
+        .btn-next { flex: 2; background: var(--primary-color); border: none; color: white; padding: 12px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 13px; }
 
-        .payment-section { margin-top: 20px; }
-        .section-title { font-size: 16px; font-weight: 700; margin-bottom: 15px; display: block; }
-        .payment-option { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid #eee; cursor: pointer; font-size: 15px;}
+        .payment-section { margin-top: 15px; }
+        .section-title { font-size: 14px; font-weight: 700; margin-bottom: 10px; display: block; }
+        .payment-option { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer; font-size: 13px;}
         .payment-option.selected { background-color: #fffaf5; }
         .payment-option.selected .radio-circle { border-color: var(--primary-color); }
-        .payment-option.selected .radio-circle::after { content: ''; width: 10px; height: 10px; background: var(--primary-color); border-radius: 50%; }
-        .radio-circle { width: 20px; height: 20px; border: 2px solid #ccc; border-radius: 50%; margin-right: 15px; display: flex; align-items: center; justify-content: center; }
+        .payment-option.selected .radio-circle::after { content: ''; width: 8px; height: 8px; background: var(--primary-color); border-radius: 50%; }
+        .radio-circle { width: 18px; height: 18px; border: 2px solid #ccc; border-radius: 50%; margin-right: 12px; display: flex; align-items: center; justify-content: center; }
         
-        .detail-box { margin-top: 10px; padding: 15px; background: #f9f9f9; border-radius: 10px; border: 1px solid #eee; display: none; }
+        .detail-box { margin-top: 8px; padding: 12px; background: #f9f9f9; border-radius: 10px; border: 1px solid #eee; display: none; }
         .detail-box.show { display: block; animation: fadeIn 0.3s; }
 
-        .saved-card-list { margin-top: 5px; }
-        .saved-card-item { display: flex; align-items: center; padding: 10px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 8px; background: #fff; cursor: pointer; }
+        .saved-card-list { margin-top: 4px; }
+        .saved-card-item { display: flex; align-items: center; padding: 8px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 6px; background: #fff; cursor: pointer; }
         .saved-card-item.active { border-color: var(--primary-color); background-color: #fff0e6; }
-        .saved-card-item input { margin-right: 10px; accent-color: var(--primary-color); }
-        .saved-card-info { font-size: 14px; font-weight: 600; color: #333; }
-        .saved-card-sub { font-size: 12px; color: #888; }
+        .saved-card-item input { margin-right: 8px; accent-color: var(--primary-color); }
+        .saved-card-info { font-size: 13px; font-weight: 600; color: #333; }
+        .saved-card-sub { font-size: 11px; color: #888; }
 
         .transfer-search {
-            width: 100%; padding: 12px 15px; border-radius: 20px; border: 1px solid #eee; background: #f5f5f5; 
-            font-size: 14px; margin-bottom: 25px; outline: none;
+            width: 100%; padding: 10px 15px; border-radius: 18px; border: 1px solid #eee; background: #f5f5f5; 
+            font-size: 13px; margin-bottom: 20px; outline: none;
         }
         .transfer-search:focus { border-color: var(--primary-color); background: #fff; }
         
         .recipient-list { list-style: none; padding: 0; margin: 0; }
         .recipient-item { 
-            display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid #f0f0f0; cursor: pointer; transition: background 0.2s;
+            display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f0f0; cursor: pointer; transition: background 0.2s;
         }
         .recipient-item:active { background-color: #f9f9f9; }
         .recipient-avatar { 
-            width: 48px; height: 48px; border-radius: 50%; background-color: #eee; margin-right: 15px; 
-            display: flex; align-items: center; justify-content: center; font-weight: 700; color: #555; font-size: 18px;
+            width: 40px; height: 40px; border-radius: 50%; background-color: #eee; margin-right: 12px; 
+            display: flex; align-items: center; justify-content: center; font-weight: 700; color: #555; font-size: 16px;
             position: relative;
         }
         .recipient-info { flex: 1; }
-        .recipient-name { font-size: 16px; font-weight: 700; color: var(--text-color); margin-bottom: 4px; }
-        .recipient-detail { font-size: 13px; color: var(--sub-text-color); }
+        .recipient-name { font-size: 14px; font-weight: 700; color: var(--text-color); margin-bottom: 3px; }
+        .recipient-detail { font-size: 11px; color: var(--sub-text-color); }
 
         .big-money-input-wrapper {
             background-color: #fff; border: 2px solid var(--primary-color); border-radius: 12px;
-            padding: 15px; margin: 20px 0; display: flex; align-items: center; justify-content: center;
+            padding: 12px; margin: 15px 0; display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 12px rgba(40, 112, 44, 0.1);
         }
         .big-money-input {
-            width: 100%; border: none; background: transparent; font-size: 32px; font-weight: 800;
+            width: 100%; border: none; background: transparent; font-size: 28px; font-weight: 800;
             outline: none; text-align: center; color: var(--text-color);
         }
         .big-money-input::placeholder { color: #ccc; }
@@ -344,49 +345,49 @@
         .big-money-input[type="number"]::-webkit-outer-spin-button, 
         .big-money-input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
-        .pin-container { text-align: center; margin-top: 30px; }
-        .pin-message { font-size: 18px; font-weight: 700; margin-bottom: 30px; line-height: 1.4; color: #333; }
-        .pin-display { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; }
-        .pin-dot { width: 16px; height: 16px; border-radius: 50%; background-color: #ddd; transition: all 0.2s; }
+        .pin-container { text-align: center; margin-top: 25px; }
+        .pin-message { font-size: 16px; font-weight: 700; margin-bottom: 25px; line-height: 1.4; color: #333; }
+        .pin-display { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; }
+        .pin-dot { width: 14px; height: 14px; border-radius: 50%; background-color: #ddd; transition: all 0.2s; }
         .pin-dot.filled { background-color: #333; transform: scale(1.2); }
 
-        .num-pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 0 20px; max-width: 350px; margin: 0 auto; }
+        .num-pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 15px; max-width: 320px; margin: 0 auto; }
         .num-key { 
-            padding: 20px 0; font-size: 24px; font-weight: 600; color: #333; text-align: center; 
+            padding: 18px 0; font-size: 22px; font-weight: 600; color: #333; text-align: center; 
             border-radius: 12px; cursor: pointer; user-select: none; transition: background 0.2s;
         }
         .num-key:active { background-color: #f0f0f0; }
         .num-key.empty { cursor: default; }
 
-        .success-container { text-align: center; padding-top: 40px; }
+        .success-container { text-align: center; padding-top: 30px; }
         .success-icon { 
-            width: 80px; height: 80px; background: var(--point-color); border-radius: 50%; color: white;
-            display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 20px;
+            width: 70px; height: 70px; background: var(--point-color); border-radius: 50%; color: white;
+            display: flex; align-items: center; justify-content: center; font-size: 36px; margin: 0 auto 15px;
             box-shadow: 0 10px 20px rgba(40, 112, 44, 0.3);
         }
-        .success-title { font-size: 24px; font-weight: 800; margin-bottom: 10px; color: var(--text-color); }
-        .success-desc { font-size: 16px; color: var(--sub-text-color); margin-bottom: 40px; }
+        .success-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: var(--text-color); }
+        .success-desc { font-size: 14px; color: var(--sub-text-color); margin-bottom: 30px; }
         
-        .success-btns { display: flex; gap: 12px; margin-top: 20px; }
-        .btn-share { flex: 1; background: #eee; color: #333; font-weight: 700; border: none; padding: 15px; border-radius: 12px; cursor: pointer; }
-        .btn-complete { flex: 1; background: var(--primary-color); color: white; font-weight: 700; border: none; padding: 15px; border-radius: 12px; cursor: pointer; }
+        .success-btns { display: flex; gap: 10px; margin-top: 15px; }
+        .btn-share { flex: 1; background: #eee; color: #333; font-weight: 700; border: none; padding: 12px; border-radius: 12px; cursor: pointer; font-size: 13px; }
+        .btn-complete { flex: 1; background: var(--primary-color); color: white; font-weight: 700; border: none; padding: 12px; border-radius: 12px; cursor: pointer; font-size: 13px; }
 
         .bottom-floating-bar {
             position: fixed; bottom: 0; left: 0; right: 0;
             background-color: rgba(40, 112, 44, 0.95);
-            padding: 20px; padding-bottom: 30px;
-            border-radius: 20px 20px 0 0; text-align: center; color: white; font-size: 18px; font-weight: 700;
+            padding: 15px; padding-bottom: 25px;
+            border-radius: 20px 20px 0 0; text-align: center; color: white; font-size: 16px; font-weight: 700;
             cursor: pointer; z-index: 100;
             box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
             max-width: 450px; margin: 0 auto;
         }
 
-        .input-group { margin-bottom: 14px; }
-        .input-group label { display: block; font-size: 13px; color: var(--sub-text-color); margin-bottom: 6px; }
-        .input-group input, .input-group select { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #e5e7eb; font-size: 15px; background: #fff; }
-        .btn.primary { background: var(--primary-color); color: #fff; border: none; padding: 14px; border-radius: 12px; width: 100%; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(40, 112, 44, 0.3); }
+        .input-group { margin-bottom: 12px; }
+        .input-group label { display: block; font-size: 12px; color: var(--sub-text-color); margin-bottom: 5px; }
+        .input-group input, .input-group select { width: 100%; padding: 10px; border-radius: 12px; border: 1px solid #e5e7eb; font-size: 14px; background: #fff; }
+        .btn.primary { background: var(--primary-color); color: #fff; border: none; padding: 12px; border-radius: 12px; width: 100%; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(40, 112, 44, 0.3); font-size: 14px; }
         .btn.primary:hover { opacity: 0.95; }
-        .toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); background: #111; color: #fff; padding: 12px 18px; border-radius: 16px; font-size: 14px; display: none; z-index: 200; opacity: 0; transition: opacity 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: #111; color: #fff; padding: 10px 16px; border-radius: 16px; font-size: 13px; display: none; z-index: 200; opacity: 0; transition: opacity 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -403,7 +404,7 @@
 
     <section class="page active" id="page-home">
         <div class="card-container">
-            <img src="./cardtype1.jpg" alt="Nexus Card" style="width: 100%; max-width: 280px; height: auto; border-radius: 20px; box-shadow: 0 10px 25px rgba(40, 112, 44, 0.2); display: block; margin: 0 auto 25px;">
+            <img src="./cardtype1.jpg" alt="Nexus Card" style="width: 100%; max-width: 280px; height: auto; border-radius: 20px; box-shadow: 0 10px 25px rgba(40, 112, 44, 0.2); display: block; margin: 0 auto 20px;">
         </div>
 
         <div class="balance-area">
@@ -431,15 +432,15 @@
         </div>
 
         <div class="quick-actions-grid">
-            <h3 style="font-size:17px; margin-bottom:15px;">Quick Actions</h3>
+            <h3 style="font-size:15px; margin-bottom:12px;">Quick Actions</h3>
             <div class="grid-4">
                 <div class="action-card accent" onclick="showToast('Missions (5,000P)')">
-                    <div><i class="fas fa-medal" style="font-size:24px;"></i></div>
-                    <div style="font-size:14px; font-weight:600;">Missions (5,000P)</div>
+                    <div><i class="fas fa-medal" style="font-size:22px;"></i></div>
+                    <div style="font-size:12px; font-weight:600;">Missions (5,000P)</div>
                 </div>
                 <div class="action-card info" data-target="page-visa">
-                    <div><i class="fas fa-passport" style="font-size:24px;"></i></div>
-                    <div style="font-size:14px; font-weight:600;">Visa Management</div>
+                    <div><i class="fas fa-passport" style="font-size:22px;"></i></div>
+                    <div style="font-size:12px; font-weight:600;">Visa Management</div>
                 </div>
             </div>
         </div>
@@ -447,24 +448,25 @@
 
     <section class="page" id="page-visa">
         <a class="back-link" data-target="page-home"><i class="fas fa-arrow-left"></i> Home</a>
-        <h2 style="margin-top:0;">Visa Management</h2>
+        <h2 style="margin-top:0; font-size: 20px;">Visa Management</h2>
 
         <div class="visa-status-card">
-            <div style="font-size: 13px; color: #888; font-weight: 600;">Current Status</div>
-            <div style="font-size: 28px; font-weight: 800; color: var(--primary-color); margin: 8px 0;">D-2 Student</div>
-            <div style="display: inline-block; background: #e8f5e9; color: var(--point-color); padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 700;">Active</div>
-            <div style="margin-top: 15px; font-size: 14px; color: #333;">
+            <div style="font-size: 12px; color: #888; font-weight: 600;">Current Status</div>
+            <div style="font-size: 22px; font-weight: 800; color: var(--primary-color); margin: 6px 0;">D-2 Student</div>
+            <div style="display: inline-block; background: #e8f5e9; color: var(--point-color); padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700;">Active</div>
+            <div style="margin-top: 10px; font-size: 13px; color: #333;">
                 Expires on <strong>Feb 05, 2028</strong>
             </div>
         </div>
 
-        <div class="form-card" style="margin-bottom: 20px;">
-            <h3 style="font-size: 15px; margin-bottom: 12px;">Visa Details</h3>
+        <div class="form-card" style="margin-bottom: 15px; padding: 15px;">
+            <h3 style="font-size: 14px; margin-bottom: 10px;">Visa Details</h3>
             
             <div class="detail-row visa-row">
                 <span class="detail-label">Visa Issue No.</span>
                 <span class="detail-val">AD092831</span>
             </div>
+            
             <div class="detail-row visa-row">
                 <span class="detail-label">Reg. No</span>
                 <span class="detail-val">990101-5******</span>
@@ -492,12 +494,12 @@
             </div>
         </div>
 
-        <h3 style="font-size: 15px; margin-bottom: 12px;">Immigration Contact</h3>
+        <h3 style="font-size: 14px; margin-bottom: 10px;">Immigration Contact</h3>
         <div style="display: flex; gap: 8px;">
-            <a href="tel:1345" style="flex: 1; background: white; border: 1px solid #ddd; color: #333; text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 14px;">
+            <a href="tel:1345" style="flex: 1; background: white; border: 1px solid #ddd; color: #333; text-align: center; padding: 10px; border-radius: 12px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 13px;">
                 <i class="fas fa-phone-alt" style="color: var(--point-color); margin-right: 5px;"></i> Call 1345
             </a>
-            <a href="mailto:contact@immigration.go.kr" style="flex: 1; background: white; border: 1px solid #ddd; color: #333; text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 14px;">
+            <a href="mailto:contact@immigration.go.kr" style="flex: 1; background: white; border: 1px solid #ddd; color: #333; text-align: center; padding: 10px; border-radius: 12px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 13px;">
                 <i class="fas fa-envelope" style="color: var(--point-color); margin-right: 5px;"></i> Email
             </a>
         </div>
@@ -507,8 +509,8 @@
         <a class="back-link" data-target="page-home"><i class="fas fa-arrow-left"></i> Home</a>
         
         <div style="display:flex; justify-content:space-between; align-items:center;">
-            <h2 style="margin:10px 0 20px;">History</h2>
-            <span style="font-size:14px; color:var(--primary-color); font-weight:600;">View All</span>
+            <h2 style="margin:10px 0 20px; font-size: 20px;">History</h2>
+            <span style="font-size:13px; color:var(--primary-color); font-weight:600;">View All</span>
         </div>
 
         <input type="text" class="history-search" placeholder="Search by name or merchant" onkeyup="filterTransactions(this.value)">
@@ -534,7 +536,7 @@
     <section class="page" id="page-transaction-detail">
         <a class="back-link" data-target="page-history"><i class="fas fa-arrow-left"></i> Back to List</a>
         
-        <div style="padding:10px;">
+        <div style="padding:5px;">
             <div class="detail-header">
                 <div class="detail-amount" id="detail-amount"></div>
                 <div class="detail-title" id="detail-title"></div>
@@ -603,7 +605,7 @@
 
     <section class="page" id="page-cards">
         <a class="back-link" data-target="page-home"><i class="fas fa-arrow-left"></i> Home</a>
-        <h2 style="margin-top:0;">Cards</h2>
+        <h2 style="margin-top:0; font-size: 20px;">Cards</h2>
         
         <div style="text-align: center; margin-bottom: 20px;">
             <img src="./cardtype1.jpg" alt="Nexus Card" style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; box-shadow: 0 10px 25px rgba(40, 112, 44, 0.2); display: block; margin: 0 auto;">
@@ -632,28 +634,28 @@
 
     <section class="page" id="page-all">
         <a class="back-link" data-target="page-home"><i class="fas fa-arrow-left"></i> Home</a>
-        <h2 style="margin-top:0;">All Menu</h2>
+        <h2 style="margin-top:0; font-size: 20px;">All Menu</h2>
         
-        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:15px; text-align:center; margin-top:30px;">
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; text-align:center; margin-top:20px;">
             <div style="padding:15px; background:#f9f9f9; border-radius:12px;">
-                <i class="fas fa-user-cog" style="font-size:24px; color:#555; margin-bottom:8px;"></i>
-                <div style="font-size:12px;">My Info</div>
+                <i class="fas fa-user-cog" style="font-size:22px; color:#555; margin-bottom:8px;"></i>
+                <div style="font-size:11px;">My Info</div>
             </div>
             <div style="padding:15px; background:#f9f9f9; border-radius:12px;">
-                <i class="fas fa-shield-alt" style="font-size:24px; color:#555; margin-bottom:8px;"></i>
-                <div style="font-size:12px;">Security</div>
+                <i class="fas fa-shield-alt" style="font-size:22px; color:#555; margin-bottom:8px;"></i>
+                <div style="font-size:11px;">Security</div>
             </div>
             <div style="padding:15px; background:#f9f9f9; border-radius:12px;">
-                <i class="fas fa-bullhorn" style="font-size:24px; color:#555; margin-bottom:8px;"></i>
-                <div style="font-size:12px;">Notices</div>
+                <i class="fas fa-bullhorn" style="font-size:22px; color:#555; margin-bottom:8px;"></i>
+                <div style="font-size:11px;">Notices</div>
             </div>
             <div style="padding:15px; background:#f9f9f9; border-radius:12px;">
-                <i class="fas fa-headset" style="font-size:24px; color:#555; margin-bottom:8px;"></i>
-                <div style="font-size:12px;">Support</div>
+                <i class="fas fa-headset" style="font-size:22px; color:#555; margin-bottom:8px;"></i>
+                <div style="font-size:11px;">Support</div>
             </div>
             <div style="padding:15px; background:#f9f9f9; border-radius:12px;">
-                <i class="fas fa-cog" style="font-size:24px; color:#555; margin-bottom:8px;"></i>
-                <div style="font-size:12px;">Settings</div>
+                <i class="fas fa-cog" style="font-size:22px; color:#555; margin-bottom:8px;"></i>
+                <div style="font-size:11px;">Settings</div>
             </div>
         </div>
     </section>
@@ -662,19 +664,19 @@
         <a class="back-link" data-target="page-home"><i class="fas fa-arrow-left"></i> Home</a>
         
         <div class="form-card">
-            <h2 style="margin-top:0;">Top Up</h2>
+            <h2 style="margin-top:0; font-size: 20px;">Top Up</h2>
             <p style="color:var(--sub-text-color); margin-top:4px; margin-bottom:20px;">Select currency and amount.</p>
 
             <div id="step1-area">
                 <div class="currency-choice-grid">
                     <div class="currency-choice active" onclick="setCurrency('USD', this)" data-currency="USD">
-                        <span style="font-size:18px;">🇺🇸</span> USD
+                        <span style="font-size:16px;">🇺🇸</span> USD
                     </div>
                     <div class="currency-choice" onclick="setCurrency('EUR', this)" data-currency="EUR">
-                        <span style="font-size:18px;">🇪🇺</span> EUR
+                        <span style="font-size:16px;">🇪🇺</span> EUR
                     </div>
                     <div class="currency-choice" onclick="setCurrency('AUD', this)" data-currency="AUD">
-                        <span style="font-size:18px;">🇦🇺</span> AUD
+                        <span style="font-size:16px;">🇦🇺</span> AUD
                     </div>
                 </div>
 
@@ -711,7 +713,7 @@
                 <div class="payment-section">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
                         <span class="section-title" style="margin:0;">Select Payment Method</span>
-                        <span onclick="resetCharge()" style="font-size:13px; color:#999; text-decoration:underline; cursor:pointer;">Reset Amount</span>
+                        <span onclick="resetCharge()" style="font-size:12px; color:#999; text-decoration:underline; cursor:pointer;">Reset Amount</span>
                     </div>
 
                     <div class="payment-option" onclick="selectMethod(this, 'cash')">
@@ -732,7 +734,7 @@
                     </div>
                     
                     <div id="card-detail" class="detail-box">
-                        <p style="font-size:13px; color:#666; margin-bottom:10px;">Select a card</p>
+                        <p style="font-size:12px; color:#666; margin-bottom:8px;">Select a card</p>
                         <div class="saved-card-list">
                             <label class="saved-card-item" onclick="toggleCardMode('saved')">
                                 <input type="radio" name="card_select" value="9334" checked>
@@ -782,12 +784,12 @@
         <a class="back-link" data-target="page-home"><i class="fas fa-arrow-left"></i> Home</a>
         
         <div class="form-card">
-            <h2 style="margin-top:0; margin-bottom:20px;">Transfer</h2>
+            <h2 style="margin-top:0; margin-bottom:20px; font-size: 20px;">Transfer</h2>
             
             <div id="transfer-step-1">
                 <input type="text" class="transfer-search" placeholder="Enter account or name">
                 
-                <h3 style="font-size:15px; margin-bottom:15px; color:#555;">Recent Recipients</h3>
+                <h3 style="font-size:14px; margin-bottom:12px; color:#555;">Recent Recipients</h3>
                 
                 <ul class="recipient-list">
                     <li class="recipient-item" onclick="selectRecipient('Ryan', 'Nexus Friend')">
@@ -908,7 +910,7 @@
     <section class="page" id="page-remit">
         <a class="back-link" data-target="page-home"><i class="fas fa-arrow-left"></i> Home</a>
         <div class="form-card">
-            <h2 style="margin-top:0;">Exchange & Remittance</h2>
+            <h2 style="margin-top:0; font-size: 20px;">Exchange & Remittance</h2>
             <p style="color:var(--sub-text-color); margin-top:4px;">Real-time rates apply. Fees may apply.</p>
             <div class="input-group">
                 <label for="remit-amount">Amount to Send</label>
