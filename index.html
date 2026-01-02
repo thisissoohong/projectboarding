@@ -94,7 +94,17 @@
         .nav-item.active { color: var(--tab-color-active); }
         .nav-item i { font-size: 22px; margin-bottom: 4px; }
 
-        .form-card { padding: 20px; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
+        /* [수정됨] 그림자 효과가 더 강조된 카드 스타일 */
+        .form-card { padding: 20px; background: white; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+        
+        /* [NEW] 비자 상태 카드 전용 스타일 (더 강한 그림자) */
+        .visa-status-card {
+            background: white; border-radius: 20px; padding: 25px; 
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12); /* 그림자 강화 */
+            margin-bottom: 25px; text-align: center;
+            border: 1px solid rgba(0,0,0,0.02); /* 미세한 테두리 추가 */
+        }
+
         .back-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--text-color); cursor: pointer; margin-bottom: 15px; font-size: 14px; opacity: 0.7; text-decoration: none;}
         .back-link:hover { opacity: 1; color: var(--primary-color); }
 
@@ -185,7 +195,7 @@
             display: flex; justify-content: space-between; align-items: center;
             padding: 18px 0; border-bottom: 1px solid #f5f5f5; font-size: 15px;
         }
-        .detail-label { color: #888; font-weight: 600; width: 80px; }
+        .detail-label { color: #888; font-weight: 600; width: 110px; /* [수정] 라벨 너비 확보 */ }
         .detail-val { font-weight: 700; color: #333; flex: 1; text-align: right; }
         
         .cat-edit-btn {
@@ -438,28 +448,44 @@
         <a class="back-link" data-target="page-home"><i class="fas fa-arrow-left"></i> Home</a>
         <h2 style="margin-top:0;">Visa Management</h2>
 
-        <div style="background: white; border-radius: 20px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 25px; text-align: center;">
+        <div class="visa-status-card">
             <div style="font-size: 14px; color: #888; font-weight: 600;">Current Status</div>
             <div style="font-size: 32px; font-weight: 800; color: var(--primary-color); margin: 10px 0;">D-2 Student</div>
             <div style="display: inline-block; background: #e8f5e9; color: var(--point-color); padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 700;">Active</div>
             <div style="margin-top: 20px; font-size: 15px; color: #333;">
-                Expires on <strong>Dec 31, 2025</strong>
+                Expires on <strong>Feb 05, 2028</strong>
             </div>
         </div>
 
         <div class="form-card" style="margin-bottom: 25px;">
             <h3 style="font-size: 16px; margin-bottom: 15px;">Visa Details</h3>
+            
+            <div class="detail-row">
+                <span class="detail-label">Visa Issue No.</span>
+                <span class="detail-val">AD092831</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Foreigner Reg. No</span>
+                <span class="detail-val">990101-5******</span>
+            </div>
+            
+            <div style="height:1px; background:#f0f0f0; margin:10px 0;"></div>
+
             <div class="detail-row">
                 <span class="detail-label">Type</span>
                 <span class="detail-val">General Student (D-2)</span>
             </div>
             <div class="detail-row">
                 <span class="detail-label">Issue Date</span>
-                <span class="detail-val">Jan 01, 2024</span>
+                <span class="detail-val">Jan 01, 2026</span>
             </div>
             <div class="detail-row">
                 <span class="detail-label">Entry Date</span>
-                <span class="detail-val">Feb 15, 2024</span>
+                <span class="detail-val">Feb 05, 2026</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Expire Date</span>
+                <span class="detail-val" style="color:var(--point-color);">Feb 05, 2028</span>
             </div>
             <div class="detail-row" style="border-bottom: none;">
                 <span class="detail-label">Stay Period</span>
@@ -469,10 +495,10 @@
 
         <h3 style="font-size: 16px; margin-bottom: 15px;">Immigration Contact</h3>
         <div style="display: flex; gap: 10px;">
-            <a href="tel:1345" style="flex: 1; background: white; border: 1px solid #ddd; color: #333; text-align: center; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 700;">
+            <a href="tel:1345" style="flex: 1; background: white; border: 1px solid #ddd; color: #333; text-align: center; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
                 <i class="fas fa-phone-alt" style="color: var(--point-color); margin-right: 5px;"></i> Call 1345
             </a>
-            <a href="mailto:contact@immigration.go.kr" style="flex: 1; background: white; border: 1px solid #ddd; color: #333; text-align: center; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 700;">
+            <a href="mailto:contact@immigration.go.kr" style="flex: 1; background: white; border: 1px solid #ddd; color: #333; text-align: center; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
                 <i class="fas fa-envelope" style="color: var(--point-color); margin-right: 5px;"></i> Email
             </a>
         </div>
