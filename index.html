@@ -426,11 +426,55 @@
                     <div><i class="fas fa-medal" style="font-size:24px;"></i></div>
                     <div style="font-size:14px; font-weight:600;">Missions (5,000P)</div>
                 </div>
-                <div class="action-card info" onclick="showToast('Visa Management')">
+                <div class="action-card info" data-target="page-visa">
                     <div><i class="fas fa-passport" style="font-size:24px;"></i></div>
                     <div style="font-size:14px; font-weight:600;">Visa Management</div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="page" id="page-visa">
+        <a class="back-link" data-target="page-home"><i class="fas fa-arrow-left"></i> Home</a>
+        <h2 style="margin-top:0;">Visa Management</h2>
+
+        <div style="background: white; border-radius: 20px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 25px; text-align: center;">
+            <div style="font-size: 14px; color: #888; font-weight: 600;">Current Status</div>
+            <div style="font-size: 32px; font-weight: 800; color: var(--primary-color); margin: 10px 0;">D-2 Student</div>
+            <div style="display: inline-block; background: #e8f5e9; color: var(--point-color); padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 700;">Active</div>
+            <div style="margin-top: 20px; font-size: 15px; color: #333;">
+                Expires on <strong>Dec 31, 2025</strong>
+            </div>
+        </div>
+
+        <div class="form-card" style="margin-bottom: 25px;">
+            <h3 style="font-size: 16px; margin-bottom: 15px;">Visa Details</h3>
+            <div class="detail-row">
+                <span class="detail-label">Type</span>
+                <span class="detail-val">General Student (D-2)</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Issue Date</span>
+                <span class="detail-val">Jan 01, 2024</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Entry Date</span>
+                <span class="detail-val">Feb 15, 2024</span>
+            </div>
+            <div class="detail-row" style="border-bottom: none;">
+                <span class="detail-label">Stay Period</span>
+                <span class="detail-val">2 Years</span>
+            </div>
+        </div>
+
+        <h3 style="font-size: 16px; margin-bottom: 15px;">Immigration Contact</h3>
+        <div style="display: flex; gap: 10px;">
+            <a href="tel:1345" style="flex: 1; background: white; border: 1px solid #ddd; color: #333; text-align: center; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 700;">
+                <i class="fas fa-phone-alt" style="color: var(--point-color); margin-right: 5px;"></i> Call 1345
+            </a>
+            <a href="mailto:contact@immigration.go.kr" style="flex: 1; background: white; border: 1px solid #ddd; color: #333; text-align: center; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 700;">
+                <i class="fas fa-envelope" style="color: var(--point-color); margin-right: 5px;"></i> Email
+            </a>
         </div>
     </section>
 
@@ -873,8 +917,12 @@
 <div class="toast" id="toast"></div>
 
 <script>
+    // ==========================================
+    // 앱 데이터 및 상태 관리
+    // ==========================================
     const state = {
-        totalAssetsKRW: 500000,
+        totalAssetsKRW: 500000, // [Modified] Changed to 500,000
+        // [Modified] Adjusted transactions to be under 150,000 KRW
         transactions: [
             { id: 1, type: 'income', category:'Transfer', title: 'Mathias Bee', date: '29 Jul, 5:00pm', amount: 52000, status: 'Received', avatarUrl: 'https://randomuser.me/api/portraits/men/32.jpg', paymentMethod:'transfer', note:'' },
             { id: 2, type: 'expense', category:'Transport', title: 'Uber Ride', date: '24 Jul, 10:50pm', amount: 12600, status: 'Paid', avatarIcon: 'fab fa-uber', avatarBg: '#000', avatarColor: '#fff', paymentMethod:'applepay', note:'' },
@@ -943,6 +991,7 @@
 
             let titleHtml = t.title;
             if (t.paymentMethod === 'applepay') {
+                // [Modified] Updated to PNG version for better compatibility
                 titleHtml += ` <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Apple_Pay_Acceptance_Mark.svg/200px-Apple_Pay_Acceptance_Mark.svg.png" alt="Apple Pay" class="payment-logo-img">`;
             }
 
@@ -977,6 +1026,7 @@
 
         const paidViaEl = document.getElementById('detail-paid-via');
         if (tx.paymentMethod === 'applepay') {
+             // [Modified] Updated to PNG version
              paidViaEl.innerHTML = `<div class="payment-method-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Apple_Pay_Acceptance_Mark.svg/200px-Apple_Pay_Acceptance_Mark.svg.png" alt="Apple Pay" class="payment-logo-img" style="height:22px;"></div>`;
         } else if (tx.paymentMethod === 'card') {
             paidViaEl.innerHTML = `<div class="payment-method-box"><div class="pm-card-icon"></div> 9876</div>`;
