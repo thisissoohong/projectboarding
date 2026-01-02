@@ -13,8 +13,6 @@
             --card-background: #FFFFFF;
             --text-color: #333333;
             --sub-text-color: #888888;
-            /* 이미지 로딩 실패 시 보여줄 백업 그라데이션 */
-            --card-gradient: linear-gradient(135deg, #28702C, #399E3E);
             --tab-color-active: #28702C;
             --button-bg-soft: #E7F7E7;
             --income-color: #399E3E;
@@ -67,33 +65,11 @@
             border-radius: 20px; font-size: 14px; font-weight: 700; cursor: pointer;
         }
 
-        .card-container { padding: 10px 20px; }
+        .card-container { padding: 10px 20px; text-align: center; }
         
-        /* [수정됨] 텍스트 제거 및 이미지 전용 스타일 */
-        .gradient-card {
-            width: 100%; height: 200px; 
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(40, 112, 44, 0.2); 
-            /* 내부 텍스트가 없으므로 padding 제거 */
-            padding: 0; 
-            color: white;
-            position: relative; margin-bottom: 25px; 
-            
-            /* 카드 이미지 설정 */
-            background-image: url('./cardtype1.jpg'); 
-            background-size: cover;       
-            background-position: center;  
-            background-repeat: no-repeat;
-        }
-        
-        /* 기존 내부 요소 스타일은 HTML에서 제거되었으므로 영향 없음 */
-        .gradient-card .card-brand { position: absolute; right: 20px; bottom: 20px; display: flex; }
-        .brand-circle { width: 24px; height: 24px; border-radius: 50%; }
-        .brand-circle.red { background-color: #EB001B; opacity: 0.8; }
-        .brand-circle.yellow { background-color: #F79E1B; opacity: 0.8; margin-left: -10px;}
-        .card-chip { width: 35px; height: 25px; background: rgba(255,255,255,0.3); border-radius: 4px; margin-bottom: 10px; }
+        /* [수정됨] 기존 .gradient-card 스타일 제거 */
 
-        .balance-area { text-align: center; margin-bottom: 30px; }
+        .balance-area { text-align: center; margin-bottom: 30px; margin-top: 10px; }
         .balance-area .amount { font-size: 36px; font-weight: 800; color: var(--text-color); letter-spacing: -0.5px; }
         .balance-area .currency { font-size: 14px; font-weight: 600; color: var(--sub-text-color); margin-bottom: 5px; }
 
@@ -416,8 +392,7 @@
 
     <section class="page active" id="page-home">
         <div class="card-container">
-            <div class="gradient-card">
-            </div>
+            <img src="./cardtype1.jpg" alt="My Card" style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; box-shadow: 0 10px 25px rgba(40, 112, 44, 0.2); display: block; margin: 0 auto 25px;">
         </div>
 
         <div class="balance-area">
@@ -569,7 +544,8 @@
         <a class="back-link" data-target="page-home"><i class="fas fa-arrow-left"></i> 홈으로</a>
         <h2 style="margin-top:0;">내 카드 관리</h2>
         
-        <div class="gradient-card" style="height:180px; margin-bottom:20px;">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="./cardtype1.jpg" alt="My Card" style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; box-shadow: 0 10px 25px rgba(40, 112, 44, 0.2); display: block; margin: 0 auto;">
         </div>
 
         <div class="input-group">
